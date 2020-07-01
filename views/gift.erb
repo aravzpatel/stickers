@@ -4,7 +4,7 @@
   <head>
     <style>
       .Div1 {
-        border: 5px blue;
+        border: 5px red;
         text-align: center;
       }
     img {
@@ -14,9 +14,21 @@
   </head>
 
   <body>
-    <div class="Div1">
-      <h1>Well done</h1>
-      <img src="https://img.todo-memes.com/meme-de/ANOTADO-634609.jpg" alt="Annotado" width="300" height="300">
-    </div>
+    <% if @user_sticker == true %>
+    <p> <%= @user_sticker %> </p>
+      <div class="Div1">
+        <h1>Welcome <%= @user_name%> </h1>
+        <form action="/gift" method="post">
+        <label>
+        Have you been a good boy?
+        <input type="submit" value="Give sticker" <% @user_sticker%>>
+        </label>
+      </div>
+    <% elsif @user_sticker == false %>
+      <div class="Div1">
+        <h1><%= @user_name%> sounds like you've been good</h1>
+        <img src="https://img.todo-memes.com/meme-de/ANOTADO-634609.jpg" alt="Anotado" width="300" height="300">
+      </div>
+    <% end %>
   </body>
 </html>

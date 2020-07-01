@@ -1,9 +1,8 @@
-require 'spec_helper'
-
-feature "Giving a sticker" do
-  scenario "visiting the homepage and giving a sticker" do
+feature "creating a user" do
+  scenario "inputting a user into the application" do
     visit '/'
-    click_button('Give sticker')
-    expect(page).to have_css("img[@src = 'https://img.todo-memes.com/meme-de/ANOTADO-634609.jpg']")
+    fill_in "name", with: "Arav"
+    click_button('Submit')
+    expect(page).to have_content "Welcome Arav"
   end
 end
